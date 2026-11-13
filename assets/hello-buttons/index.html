@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Tauri!</title>
+</head>
+<body>
+  <form id="form">
+    <label for="name">Name</label>
+    <input id="name" name="name" autocomplete="off">
+    <button type="submit">Greet</button>
+  </form>
+  <p id="message"></p>
+  <h2>Counter: <span id="counter">0</span></h2>
+  <button id="increment-btn" type="button">Increment</button>
+  <button id="decrement-btn" type="button">Decrement</button>
+  <button id="reset-btn" type="button">Reset</button>
+  <script>
+    const { invoke } = window.__TAURI__.core;
+    const counter = document.getElementById('counter');
+    const updateCounter = async (command) => {
+      counter.textContent = await invoke(command);
+    };
+    document.addEventListener('DOMContentLoaded', () => updateCounter('get'));
+    document.getElementById('form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      document.getElementById('message').textContent = await invoke('greet', { name });
+    });
+    document.getElementById('increment-btn').addEventListener('click', () => updateCounter('increment'));
+    document.getElementById('decrement-btn').addEventListener('click', () => updateCounter('decrement'));
+    document.getElementById('reset-btn').addEventListener('click', () => updateCounter('reset'));
+  </script>
+</body>
+</html>

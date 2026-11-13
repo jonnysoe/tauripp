@@ -1,0 +1,35 @@
+---
+BasedOnStyle: WebKit
+AlignAfterOpenBracket: BlockIndent
+# AlignAfterOpenBracket: AlwaysBreak
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortEnumsOnASingleLine: false
+SpaceAfterCStyleCast: true
+BinPackArguments: false
+BinPackParameters: OnePerLine
+BreakBeforeBraces: Custom
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+BraceWrapping:
+  AfterFunction: false
+  # IndentBraces: true
+ColumnLimit: 120
+# ColumnLimit: 70
+# InsertBraces: true
+IndentPPDirectives: BeforeHash
+PackConstructorInitializers: CurrentLine
+PPIndentWidth: 2
+SpaceAfterTemplateKeyword: false
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeInheritanceColon: false
+
+# BracedInitializerIndentWidth: 4
+# ContinuationIndentWidth: 4
+BreakBeforeBinaryOperators: None
+BreakBinaryOperations: RespectPrecedence
+BreakStringLiterals: false
+FixNamespaceComments: true
+ReflowComments: IndentOnly
+AlignOperands: Align
+...
+
